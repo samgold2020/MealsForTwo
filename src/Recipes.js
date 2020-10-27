@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Recipe from './Recipe'
 
+const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=chicken_breast`
+
+
 const Recipes = ({ recipes, setRecipes }) => {
 
-    useEffect(() => {
-        const url =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/random.php`
-        
+    useEffect(() => {   
+        const url = `${ingredientURL}`
+     
         fetch(url)
         .then(res => res.json())
         .then (res => {
@@ -17,10 +20,19 @@ const Recipes = ({ recipes, setRecipes }) => {
         })
     }, []);
 
+    if (!recipes) {
+        return null;
+    }
+    console.log(recipes)
+
     return (
         <div className='RecipeSearch'>
-
-            <p>Recipes Search</p>
+            {/* {recipes.map((recipe) => {
+                return (
+                <p>{recipe}</p>
+                )
+            })} */}
+            <p>Recipes Search </p>
         <Recipe recipes={recipes} setRecipes={setRecipes}/>
         </div>
     );
