@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
+const randomAPI =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/random.php`
 
 const RandomRecipe = ({ random, setRandom }) => {
 
-    const updateRandomRecipe = (event) => {
+    useEffect(() => {
+        const url = `${randomAPI}`
+
+        fetch(url)
+        .then(res => res.json())
+        .then(res => {
+            setRandom(res)
+            console.log(res)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    },[])
+    if (!random) {
+        return null;
+    }
+
+    const randomRecipeButton = (event) => {
+        event.preventDefault()
+        console.log("Clicked!")
     }
 
     return (
-        <div>
+        <section>
+        <form onClick={randomRecipeButton}>
             <button>Generate a Random Recipe</button>
-        </div>
+         </form>
+         </section>
     );
 };
 

@@ -4,7 +4,7 @@ import Recipe from './Recipe'
 const Recipes = ({ recipes, setRecipes }) => {
 
     useEffect(() => {
-        const url ='https://www.themealdb.com/api/json/v1/1/categories.php'
+        const url =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/random.php`
         
         fetch(url)
         .then(res => res.json())
