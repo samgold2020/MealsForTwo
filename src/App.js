@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Recipes from './Recipes'
+import RandomRecipe from './RandomRecipe'
+import Footer from './Footer'
 
 function App() {
+
+  const [recipes, setRecipes] = useState ('Sam')
+  const [random, setRandom] = useState ('')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+    <header>
+      <h1>Recipes For You</h1>
       </header>
-    </div>
+      <Recipes recipes={recipes} setRecipes={setRecipes} />
+      <RandomRecipe random={random} setRandom={setRandom} />
+      <Footer />
+      </div>
+
   );
 }
 
