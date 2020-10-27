@@ -6,8 +6,8 @@ import Footer from './Footer'
 
 function App() {
 
-  const [recipes, setRecipes] = useState ('Sam')
-  const [random, setRandom] = useState ('')
+  const [recipes, setRecipes] = useState ('')
+  const [random, setRandom] = useState ([])
 
   return (
     <div>
@@ -23,3 +23,9 @@ function App() {
 }
 
 export default App;
+
+//1. App should contain a header with the name of the app
+//That is also a home link with a /Home path
+//2. App should contian a three line menu within that menu 
+// should be the random recipe generator, an "about the app/api", and 
+//a "contact us"

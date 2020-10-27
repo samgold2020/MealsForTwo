@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
-const Recipe = () => {
+const Recipe = ({ recipes, setRecipes }) => {
+
     return (
         <div>
+            
             <p>Single Recipe</p>
         </div>
     );
