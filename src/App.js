@@ -1,23 +1,46 @@
 import React, { useState } from 'react';
 import './App.css';
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Switch, 
+  Link, 
+  Redirect 
+} from 'react-router-dom'
+
+//Pages
 import Recipes from './Recipes'
 import RandomRecipe from './RandomRecipe'
 import Footer from './Footer'
+import Form from './Form'
+
 
 function App() {
 
   const [recipes, setRecipes] = useState ('')
   const [random, setRandom] = useState ([])
 
+  const getRecipes = (event) => {
+    const mainIngredient = event.target.ingredient.value
+    event.preventDefault()
+    console.log(mainIngredient)
+  }
+
   return (
-    <div>
+    <>
+    <Router>
+      
+    </Router>
     <header>
       <h1>Recipes For You</h1>
       </header>
+        <Form getRecipes={getRecipes}/>
+      <main>
       <Recipes recipes={recipes} setRecipes={setRecipes} />
       <RandomRecipe random={random} setRandom={setRandom} />
       <Footer />
-      </div>
+      </main>
+    </>
 
   );
 }

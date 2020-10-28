@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Recipe from './Recipe'
+import RecipeDetails from './RecipeDetails'
+
 
 const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=chicken_breast`
 
@@ -26,15 +27,23 @@ const Recipes = ({ recipes, setRecipes }) => {
     console.log(recipes)
 
     return (
-        <div className='RecipeSearch'>
-            {recipes.map((recipe) => {
+        <section className="container">
+            {/* {recipes.map((recipe) => {
                 return (
+            <div className="card">
+                <div className="card-image">
+                <img
+                src={recipe.strMealThumb}
+                alt="photo"></img>
+            </div>
+                <div className="card-title">
                 <p>{recipe.strMeal}</p>
+                </div>
+            </div>
                 )
-            })}
-            <p>Recipes Search </p>
-        <Recipe recipes={recipes} setRecipes={setRecipes}/>
-        </div>
+            })} */}
+        <RecipeDetails recipes={recipes} setRecipes={setRecipes}/>
+        </section>
     );
 };
 

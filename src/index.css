@@ -43,6 +43,10 @@ header a {
   max-width: 1200px;
   padding: 1rem;
 }
+img {
+  width: 120px;
+
+}
 
 .card {
   border: 1px solid lightgray;
@@ -116,9 +120,6 @@ header a {
   padding: 1rem;
 }
 
-.RecipeSearch {
-  min-height: 100vh;
-}
 
 footer {
   background-color: black;
