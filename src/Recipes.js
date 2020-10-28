@@ -13,7 +13,7 @@ const Recipes = ({ recipes, setRecipes }) => {
         .then(res => res.json())
         .then (res => {
             console.log(res)
-            setRecipes(res)
+            setRecipes(res.meals)
         })
         .catch(err => {
             console.error(err)
@@ -27,11 +27,11 @@ const Recipes = ({ recipes, setRecipes }) => {
 
     return (
         <div className='RecipeSearch'>
-            {/* {recipes.map((recipe) => {
+            {recipes.map((recipe) => {
                 return (
-                <p>{recipe}</p>
+                <p>{recipe.strMeal}</p>
                 )
-            })} */}
+            })}
             <p>Recipes Search </p>
         <Recipe recipes={recipes} setRecipes={setRecipes}/>
         </div>
