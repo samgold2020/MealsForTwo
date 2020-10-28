@@ -3,45 +3,47 @@ import React, { useState, useEffect } from 'react';
 //Pages
 import RecipeDetails from './RecipeDetails'
 
-const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=chicken_breast`
-
-const Recipes = ({ recipes, setRecipes }) => {
-
-    useEffect(() => {   
-        const url = `${ingredientURL}`
+const Recipes = ({ recipes, setRecipes, searchString, setSearchString, getRecipes }) => {
+    
+    // useEffect(() => { 
+         
+    // const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=${searchString}`
      
-        fetch(url)
-        .then(res => res.json())
-        .then (res => {
-            // console.log(res)
-            setRecipes(res.meals)
-        })
-        .catch(err => {
-            console.error(err)
-        })
-    }, []);
+    //     fetch(ingredientURL)
+    //     .then(res => res.json())
+    //     .then (res => {
+    //         // console.log(res)
+    //         setRecipes(res.meals)
+    //     })
+    //     .catch(err => {
+    //         console.error(err)
+    //     })
+    // }, []);
 
-    const getRecipes = (event) => {
-        const mainIngredient = event.target.ingredient.value
-        event.preventDefault()
-        console.log(mainIngredient)
-        const data = `${ingredientURL}`
-        console.log({data})
-      }
+    // const getRecipes = (event) => {
+    //     const mainIngredient = event.target.ingredient.value
+    //     event.preventDefault()
+    //     setSearchString(mainIngredient)
+    //   }
+
+    const handleChange = (event) => {
+        setSearchString(event.target.value)
+    }
 
     if (!recipes) {
         return null;
     }
-    console.log(recipes)
+    // console.log(recipes)
 
     return (
         <>
         <section className="container">
         <form onSubmit={getRecipes}>
-            <input type="text" name="ingredient"/>
+            <input type="text" name="ingredient" value={searchString} onChange={handleChange}></input>
             <button>Search by Ingredient</button>
         </form>
-            {/* {recipes.map((recipe) => {
+        <br></br>
+            {recipes.map((recipe) => {
                 return (
             <div className="card">
                 <div className="card-image">
@@ -54,7 +56,7 @@ const Recipes = ({ recipes, setRecipes }) => {
                 </div>
             </div>
                 )
-            })} */}
+            })}
             
         <RecipeDetails recipes={recipes} setRecipes={setRecipes}/>
         </section>

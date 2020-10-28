@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import { 
   BrowserRouter as Router, 
@@ -14,9 +14,37 @@ import RandomRecipe from './RandomRecipe'
 import Footer from './Footer'
 
 function App() {
-
+  
   const [recipes, setRecipes] = useState ('')
   const [random, setRandom] = useState ([])
+  const [searchString, setSearchString] =useState('')
+  
+  const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=${searchString ? searchString : 'chicken'}` //Esin helped with the ternary!
+  useEffect(() => {      
+     
+        fetch(ingredientURL)
+        .then(res => res.json())
+        .then (res => {
+            // console.log(res)
+            setRecipes(res.meals)
+        })
+        .catch(err => {
+            console.error(err)
+        })
+    }, []);
+
+    const getRecipes = (event) => {
+      event.preventDefault()
+        fetch(ingredientURL)
+        .then(res => res.json())
+        .then (res => {
+            // console.log(res)
+            setRecipes(res.meals)
+        })
+        .catch(err => {
+            console.error(err)
+        })
+      }
 
   return (
     <>
@@ -24,7 +52,7 @@ function App() {
       <h1>Recipes For You</h1>
       </header>
       <main>
-      <Recipes recipes={recipes} setRecipes={setRecipes} />
+      <Recipes recipes={recipes} setRecipes={setRecipes} searchString={searchString} setSearchString={setSearchString} getRecipes={getRecipes} />
       <RandomRecipe random={random} setRandom={setRandom} />
       <Footer />
       </main>
