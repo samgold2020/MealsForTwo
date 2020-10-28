@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+
+//Pages
 import RecipeDetails from './RecipeDetails'
 
-
 const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=chicken_breast`
-
 
 const Recipes = ({ recipes, setRecipes }) => {
 
@@ -13,7 +13,7 @@ const Recipes = ({ recipes, setRecipes }) => {
         fetch(url)
         .then(res => res.json())
         .then (res => {
-            console.log(res)
+            // console.log(res)
             setRecipes(res.meals)
         })
         .catch(err => {
@@ -21,13 +21,26 @@ const Recipes = ({ recipes, setRecipes }) => {
         })
     }, []);
 
+    const getRecipes = (event) => {
+        const mainIngredient = event.target.ingredient.value
+        event.preventDefault()
+        console.log(mainIngredient)
+        const data = `${ingredientURL}`
+        console.log({data})
+      }
+
     if (!recipes) {
         return null;
     }
     console.log(recipes)
 
     return (
+        <>
         <section className="container">
+        <form onSubmit={getRecipes}>
+            <input type="text" name="ingredient"/>
+            <button>Search by Ingredient</button>
+        </form>
             {/* {recipes.map((recipe) => {
                 return (
             <div className="card">
@@ -42,8 +55,11 @@ const Recipes = ({ recipes, setRecipes }) => {
             </div>
                 )
             })} */}
+            
         <RecipeDetails recipes={recipes} setRecipes={setRecipes}/>
         </section>
+        </>
+ 
     );
 };
 
