@@ -30,8 +30,10 @@ header {
   padding: 1rem;
 }
 
-header a {
+header a, .random-recipe {
   color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {

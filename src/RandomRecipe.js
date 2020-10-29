@@ -1,33 +1,39 @@
 import React, { useState, useEffect } from 'react';
 
-const randomAPI =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/random.php`
 
 const RandomRecipe = ({ random, setRandom }) => {
 
-    useEffect(() => {
-        const url = `${randomAPI}`
+    const randomAPI =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/random.php`
 
-        fetch(url)
+    useEffect(() => {      
+     
+        fetch(randomAPI)
         .then(res => res.json())
-        .then(res => {
-            setRandom(res)
+        .then (res => {
             // console.log(res)
+            setRandom(res.meals)
         })
         .catch(err => {
-            console.log(err)
+            console.error(err)
         })
-    },[])
+    }, []);
 
-    //returns an array of a random meal
+    const randomRecipeButton = (event) => {
+        event.preventDefault()
+        fetch(randomAPI)
+        .then(res => res.json())
+        .then (res => {
+            // console.log(res)
+            setRandom(res.meals)
+        })
+        .catch(err => {
+            console.error(err)
+        })
+    }
+    console.log(random)
 
     if (!random) {
         return null;
-    }
-
-    // console.log(this)
-    const randomRecipeButton = (event) => {
-        event.preventDefault()
-        console.log("Clicked!")
     }
 
     return (

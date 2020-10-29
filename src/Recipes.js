@@ -4,27 +4,6 @@ import React, { useState, useEffect } from 'react';
 import RecipeDetails from './RecipeDetails'
 
 const Recipes = ({ recipes, setRecipes, searchString, setSearchString, getRecipes }) => {
-    
-    // useEffect(() => { 
-         
-    // const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=${searchString}`
-     
-    //     fetch(ingredientURL)
-    //     .then(res => res.json())
-    //     .then (res => {
-    //         // console.log(res)
-    //         setRecipes(res.meals)
-    //     })
-    //     .catch(err => {
-    //         console.error(err)
-    //     })
-    // }, []);
-
-    // const getRecipes = (event) => {
-    //     const mainIngredient = event.target.ingredient.value
-    //     event.preventDefault()
-    //     setSearchString(mainIngredient)
-    //   }
 
     const handleChange = (event) => {
         setSearchString(event.target.value)

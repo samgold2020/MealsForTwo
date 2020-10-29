@@ -15,6 +15,7 @@ import Footer from './Footer'
 
 function App() {
   
+  //State
   const [recipes, setRecipes] = useState ('')
   const [random, setRandom] = useState ([])
   const [searchString, setSearchString] =useState('')
@@ -48,13 +49,16 @@ function App() {
 
   return (
     <>
-    <header>
-      <h1>Recipes For You</h1>
+    <header className="random-recipe">
+      <h1>
+        <a href="/">Recipes For You</a>
+        </h1>
+      <RandomRecipe random={random} setRandom={setRandom} />
       </header>
       <main>
-      <Recipes recipes={recipes} setRecipes={setRecipes} searchString={searchString} setSearchString={setSearchString} getRecipes={getRecipes} />
-      <RandomRecipe random={random} setRandom={setRandom} />
-      <Footer />
+        <Recipes recipes={recipes} setRecipes={setRecipes} searchString={searchString} setSearchString={setSearchString} getRecipes={getRecipes} />
+        <Route path="/" exact component={Recipes}/>
+        <Footer />
       </main>
     </>
 
