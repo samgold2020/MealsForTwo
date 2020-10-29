@@ -30,7 +30,7 @@ const RandomRecipe = ({ random, setRandom }) => {
             console.error(err)
         })
     }
-    console.log(random)
+    // console.log(random)
 
     if (!random) {
         return null;

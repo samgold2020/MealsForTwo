@@ -12,6 +12,7 @@ import {
 import Recipes from './Recipes'
 import RandomRecipe from './RandomRecipe'
 import Footer from './Footer'
+import RecipeDetails from './RecipeDetails'
 
 function App() {
   
@@ -58,6 +59,13 @@ function App() {
       <main>
         <Recipes recipes={recipes} setRecipes={setRecipes} searchString={searchString} setSearchString={setSearchString} getRecipes={getRecipes} />
         <Route path="/" exact component={Recipes}/>
+        <Route path="/details/:idMeal"  render={(routerProps) => {
+          return(
+          <RecipeDetails 
+          match={routerProps.match}
+          />
+          )}}
+          />
         <Footer />
       </main>
     </>

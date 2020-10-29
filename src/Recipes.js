@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 
 //Pages
 import RecipeDetails from './RecipeDetails'
@@ -24,6 +25,7 @@ const Recipes = ({ recipes, setRecipes, searchString, setSearchString, getRecipe
         <br></br>
             {recipes.map((recipe) => {
                 return (
+            <Link to={`/details/${recipe.idMeal}`} key={recipe.idMeal} >
             <div className="card">
                 <div className="card-image">
                 <img
@@ -34,6 +36,7 @@ const Recipes = ({ recipes, setRecipes, searchString, setSearchString, getRecipe
                 <p>{recipe.strMeal}</p>
                 </div>
             </div>
+            </Link>
                 )
             })}
             
