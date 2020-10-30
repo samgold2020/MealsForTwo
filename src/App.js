@@ -57,10 +57,18 @@ function App() {
     <header className="random-recipe">
       <h1>
         <a href="/">Recipes For You</a>
+        <a href="/random/">Random Recipe</a> 
         </h1>
-      <RandomRecipe random={random} setRandom={setRandom} />
       </header>
       <main>
+      <Route path="/random/" render={() => {
+        return(
+          <RandomRecipe 
+          random={random} 
+          setRandom={setRandom}/>
+        )
+      }}  
+      />
         <Route path="/" exact render={() => {
           return (
             <Recipes 
