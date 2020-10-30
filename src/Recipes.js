@@ -33,14 +33,12 @@ const Recipes = ({ recipes, setRecipes, searchString, setSearchString, getRecipe
                 alt="photo"></img>
             </div>
                 <div className="card-title">
-                <p>{recipe.strMeal}</p>
+                <p>{recipe.strMeal} {recipe.idMeal}</p>
                 </div>
             </div>
             </Link>
                 )
             })}
-            
-        <RecipeDetails recipes={recipes} setRecipes={setRecipes}/>
         </section>
         </>
  

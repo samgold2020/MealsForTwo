@@ -19,9 +19,10 @@ function App() {
   //State
   const [recipes, setRecipes] = useState ('')
   const [random, setRandom] = useState ([])
-  const [searchString, setSearchString] =useState('')
+  const [searchString, setSearchString] =useState('chicken')
+  const [searchID, setSearchID] =useState('')
   
-  const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=${searchString ? searchString : 'chicken'}` //Esin helped with the ternary!
+  const ingredientURL =`https://www.themealdb.com/api/json/v2/${process.env.REACT_APP_API_KEY}/filter.php?i=${searchString}` 
   useEffect(() => {      
      
         fetch(ingredientURL)
@@ -29,6 +30,7 @@ function App() {
         .then (res => {
             // console.log(res)
             setRecipes(res.meals)
+
         })
         .catch(err => {
             console.error(err)
@@ -42,6 +44,8 @@ function App() {
         .then (res => {
             // console.log(res)
             setRecipes(res.meals)
+            setSearchID(res.meals.idMeal)
+            console.log(res.meals.idMeal) //should return idMEAL?
         })
         .catch(err => {
             console.error(err)
@@ -57,9 +61,18 @@ function App() {
       <RandomRecipe random={random} setRandom={setRandom} />
       </header>
       <main>
-        <Recipes recipes={recipes} setRecipes={setRecipes} searchString={searchString} setSearchString={setSearchString} getRecipes={getRecipes} />
-        <Route path="/" exact component={Recipes}/>
-        <Route path="/details/:idMeal"  render={(routerProps) => {
+        <Route path="/" exact render={() => {
+          return (
+            <Recipes 
+            recipes={recipes} 
+            setRecipes={setRecipes} 
+            searchString={searchString} 
+            setSearchString={setSearchString} 
+            getRecipes={getRecipes} 
+            /> 
+          )
+        }}/>
+        <Route path="/details/:idMeal" render={(routerProps) => {
           return(
           <RecipeDetails 
           match={routerProps.match}
