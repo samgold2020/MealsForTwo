@@ -3,9 +3,6 @@ import './App.css';
 import { 
   BrowserRouter as Router, 
   Route, 
-  Switch, 
-  Link, 
-  Redirect 
 } from 'react-router-dom'
 
 //Pages
@@ -45,20 +42,20 @@ function App() {
             // console.log(res)
             setRecipes(res.meals)
             setSearchID(res.meals.idMeal)
-            console.log(res.meals.idMeal) //should return idMEAL?
+            console.log(res.meals.idMeal) 
         })
         .catch(err => {
             console.error(err)
         })
       }
-
+      console.log('Hello World')
   return (
     <>
     <header className="random-recipe">
       <h1>
         <a href="/">Recipes For You</a>
-        <a href="/random/">Random Recipe</a> 
         </h1>
+        <a href="/random/">Get a Random Recipe!</a> 
       </header>
       <main>
       <Route path="/random/" render={() => {
@@ -96,8 +93,3 @@ function App() {
 
 export default App;
 
-//1. App should contain a header with the name of the app
-//That is also a home link with a /Home path
-//2. App should contian a three line menu within that menu 
-// should be the random recipe generator, an "about the app/api", and 
-//a "contact us"

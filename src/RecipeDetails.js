@@ -44,7 +44,7 @@ const RecipeDetails = ({ match }) => {
                 <li>{recipe.strMeasure8} {recipe.strIngredient8}</li>
                 <li>{recipe.strMeasure9} {recipe.strIngredient9}</li>
                 <li>{recipe.strMeasure10} {recipe.strIngredient10}</li>
-                <li>{recipe.strMeasure11} {recipe.strIngredient11}</li>
+                { recipe.strIngredient11 && <li>{recipe.strMeasure11} {recipe.strIngredient11}</li>}
                 <li>{recipe.strInstructions}</li>
             </ul>
         </div>
