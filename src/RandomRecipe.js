@@ -23,19 +23,18 @@ const RandomRecipe = ({ random, setRandom }) => {
         })
     }, []);
 
-    const randomRecipeButton = (event) => {
-        event.preventDefault()
-        fetch(randomAPI)
-        .then(res => res.json())
-        .then (res => {
-            // console.log(res)
-            setRandom(res.meals)
-        })
-        .catch(err => {
-            console.error(err)
-        })
-    }
-    console.log(random)
+    // const randomRecipeButton = (event) => {
+    //     event.preventDefault()
+    //     fetch(randomAPI)
+    //     .then(res => res.json())
+    //     .then (res => {
+    //         // console.log(res)
+    //         setRandom(res.meals)
+    //     })
+    //     .catch(err => {
+    //         console.error(err)
+    //     })
+    // }
 
     if (!random) {
         return null;
@@ -43,16 +42,15 @@ const RandomRecipe = ({ random, setRandom }) => {
 
     return (
         <section>
-        <form onClick={RandomRecipe}>
-            <button>Get a Different Recipe</button>
-         </form>
+        {/* <form onClick={RandomRecipe}>
+            <button className="random-different-button">Get a Different Recipe</button>
+         </form> */}
          <div className="details-container">
-            <img
+            <img className="card-back"
             src={random.strMealThumb}
             alt={random.strMeal}/>
         <div className="details">
-            <h4>{random.strMeal}</h4>
-            <h5>{random.strArea}</h5>
+            <p>{random.strMeal} - {random.strArea}</p>
             <ul>
                 <li>{random.strMeasure1} {random.strIngredient1}</li>
                 <li>{random.strMeasure2} {random.strIngredient2}</li>
@@ -73,10 +71,3 @@ const RandomRecipe = ({ random, setRandom }) => {
 };
 
 export default RandomRecipe;
-
-//1. If a recipe is not liked there should be a "generaate another" button
-//2. Should this include math.random for the random recipe generator? 
-//3. This is a button which returns some recipe after the submit="onclick"
-
-//console log at 21 returns an array of a random meal with idMeal
-// strArea, strCategory

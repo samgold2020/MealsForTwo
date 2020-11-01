@@ -25,7 +25,6 @@ function App() {
         fetch(ingredientURL)
         .then(res => res.json())
         .then (res => {
-            // console.log(res)
             setRecipes(res.meals)
 
         })
@@ -48,14 +47,14 @@ function App() {
             console.error(err)
         })
       }
-      console.log('Hello World')
+
   return (
     <>
     <header className="random-recipe">
       <h1>
         <a href="/">Recipes For You</a>
         </h1>
-        <a href="/random/">Get a Random Recipe!</a> 
+        <a href="/random/" className="random-button"><button>Get a Random Recipe!</button></a> 
       </header>
       <main>
       <Route path="/random/" render={() => {

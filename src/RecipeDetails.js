@@ -29,10 +29,11 @@ const RecipeDetails = ({ match }) => {
 
     return (
         <div className="details-container">
-            <img
+            <img className="card-back"
             src={recipe.strMealThumb}
             alt={recipe.strMeal}/>
         <div className="details">
+            <p>{recipe.strMeal} - {recipe.strArea}</p>
             <ul>
                 <li>{recipe.strMeasure1} {recipe.strIngredient1}</li>
                 <li>{recipe.strMeasure2} {recipe.strIngredient2}</li>
@@ -45,7 +46,7 @@ const RecipeDetails = ({ match }) => {
                 <li>{recipe.strMeasure9} {recipe.strIngredient9}</li>
                 <li>{recipe.strMeasure10} {recipe.strIngredient10}</li>
                 { recipe.strIngredient11 && <li>{recipe.strMeasure11} {recipe.strIngredient11}</li>}
-                <li>{recipe.strInstructions}</li>
+                <li className="instructions"> Instructions: {recipe.strInstructions}</li>
             </ul>
         </div>
         </div>
