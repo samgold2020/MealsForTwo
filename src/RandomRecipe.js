@@ -14,27 +14,12 @@ const RandomRecipe = ({ random, setRandom }) => {
         fetch(randomAPI)
         .then(res => res.json())
         .then (res => {
-            // console.log(res)
             setRandom(res.meals[0]) //This pulls out the meal from the array
-            console.log(random)
         })
         .catch(err => {
             console.error(err)
         })
     }, []);
-
-    // const randomRecipeButton = (event) => {
-    //     event.preventDefault()
-    //     fetch(randomAPI)
-    //     .then(res => res.json())
-    //     .then (res => {
-    //         // console.log(res)
-    //         setRandom(res.meals)
-    //     })
-    //     .catch(err => {
-    //         console.error(err)
-    //     })
-    // }
 
     if (!random) {
         return null;
@@ -42,16 +27,13 @@ const RandomRecipe = ({ random, setRandom }) => {
 
     return (
         <section>
-        {/* <form onClick={RandomRecipe}>
-            <button className="random-different-button">Get a Different Recipe</button>
-         </form> */}
          <div className="details-container">
             <img className="card-back"
             src={random.strMealThumb}
             alt={random.strMeal}/>
         <div className="details">
             <p>{random.strMeal} - {random.strArea}</p>
-            <ul>
+            <ul className="ingredient-details">
                 <li>{random.strMeasure1} {random.strIngredient1}</li>
                 <li>{random.strMeasure2} {random.strIngredient2}</li>
                 <li>{random.strMeasure3} {random.strIngredient3}</li>
@@ -62,7 +44,10 @@ const RandomRecipe = ({ random, setRandom }) => {
                 <li>{random.strMeasure8} {random.strIngredient8}</li>
                 <li>{random.strMeasure9} {random.strIngredient9}</li>
                 <li>{random.strMeasure10} {random.strIngredient10}</li>
-                <li>Instructions: {random.strInstructions}</li>
+                <li>{random.strMeasure11} {random.strIngredient11}</li>
+                <li>{random.strMeasure12} {random.strIngredient12}</li>
+                <br></br>
+                <li><b>Instructions:</b> {random.strInstructions}</li>
             </ul>
         </div>
         </div>

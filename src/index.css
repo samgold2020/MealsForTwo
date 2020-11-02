@@ -1,18 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@0;1&display=swap');
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 * {
   box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
 }
 
 p {
 text-align: center;
 font-weight: 700;
 font-size: 20px;
-border-style: dotted;
 }
 
 body {
@@ -46,38 +42,32 @@ header a, .random-recipe {
 .container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: minmax(250px, auto);
+  grid-auto-rows: minmax(250px);
   grid-gap: 1rem;
   margin: 0 auto;
   max-width: 1200px;
   padding: 1rem;
-}
+} 
+
 img {
-  width: 80%;
+  width: 100%;
 }
 
 .card-back {
-  width: 60%;
+  padding-top: 20px;
+  width: 40%;
+  height: 50%;
 }
 
-.search-bar {
+.card-details{
   display: flex;
-  justify-content: start;
-  max-height: 40px;
-}
+ align-items: center;
 
+}
 .card {
   border: 1px solid lightgray;
   border-radius: 1rem;
   display: grid;
-  grid-template-rows: 3fr 1fr;
-  
-}
-
-.card-image {
-  align-items: center;
-  display: flex;
-  justify-content: center;
 }
 
 .card-title {
@@ -96,14 +86,21 @@ img {
   justify-content: center;
 }
 
-.details-image {
-  padding: 1rem;
-  width: 200px;
-}
-
 .details {
   padding: 1rem;
-  width: 350px;
+  text-align: center;
+}
+
+.ingredient-details{
+  border-style: double;
+}
+
+.instructions {
+  border-style: dotted;
+  list-style-type: none;
+}
+ul {
+  list-style-type: none;
 }
 
 h2 {
@@ -115,11 +112,17 @@ font-weight: 400;
   font-size: 15px;
 }
 
-.instructions {
-  list-style-type: none;
+.search-bar {
+  text-align: center;
+  font-size: 24px;
 }
 
+
 footer {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
   background-color: black;
   color: white;
   padding: 1rem;

@@ -16,11 +16,13 @@ const Recipes = ({ recipes, setRecipes, searchString, setSearchString, getRecipe
 
     return (
         <>
-        <section className="container">
-        <form onSubmit={getRecipes} className="search-bars">
+        <header className="search-bar">
+        <form onSubmit={getRecipes} >
             <input type="text" name="ingredient" value={searchString} onChange={handleChange}></input>
             <button>Search by Ingredient</button>
         </form>
+        </header>
+        <section className="container">
         <br></br>
             {recipes.map((recipe) => {
                 return (
@@ -45,6 +47,3 @@ const Recipes = ({ recipes, setRecipes, searchString, setSearchString, getRecipe
 };
 
 export default Recipes;
-
-
-

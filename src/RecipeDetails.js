@@ -26,7 +26,6 @@ const RecipeDetails = ({ match }) => {
           return null;
       }
 
-
     return (
         <div className="details-container">
             <img className="card-back"
@@ -34,7 +33,7 @@ const RecipeDetails = ({ match }) => {
             alt={recipe.strMeal}/>
         <div className="details">
             <p>{recipe.strMeal} - {recipe.strArea}</p>
-            <ul>
+            <ul className="ingredient-details">
                 <li>{recipe.strMeasure1} {recipe.strIngredient1}</li>
                 <li>{recipe.strMeasure2} {recipe.strIngredient2}</li>
                 <li>{recipe.strMeasure3} {recipe.strIngredient3}</li>
@@ -46,8 +45,9 @@ const RecipeDetails = ({ match }) => {
                 <li>{recipe.strMeasure9} {recipe.strIngredient9}</li>
                 <li>{recipe.strMeasure10} {recipe.strIngredient10}</li>
                 { recipe.strIngredient11 && <li>{recipe.strMeasure11} {recipe.strIngredient11}</li>}
-                <li className="instructions"> Instructions: {recipe.strInstructions}</li>
-            </ul>
+                <br></br>
+                <li> <b>Instructions:</b> {recipe.strInstructions}</li>
+                </ul>
         </div>
         </div>
     );

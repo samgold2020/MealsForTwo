@@ -3,7 +3,9 @@ import './App.css';
 import { 
   BrowserRouter as Router, 
   Route, 
+  Link,
 } from 'react-router-dom'
+
 
 //Pages
 import Recipes from './Recipes'
@@ -38,10 +40,9 @@ function App() {
         fetch(ingredientURL)
         .then(res => res.json())
         .then (res => {
-            // console.log(res)
             setRecipes(res.meals)
             setSearchID(res.meals.idMeal)
-            console.log(res.meals.idMeal) 
+
         })
         .catch(err => {
             console.error(err)
@@ -54,7 +55,7 @@ function App() {
       <h1>
         <a href="/">Recipes For You</a>
         </h1>
-        <a href="/random/" className="random-button"><button>Get a Random Recipe!</button></a> 
+        <a href="/random/" className="random-button"><button>Get a Random Recipe</button></a> 
       </header>
       <main>
       <Route path="/random/" render={() => {

@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+Project Description: 
+Whether it's trying to choose what show to watch or whether or not the actually dog needs to go to doggy daycare three times a week, coming to an agreement with your partner can be difficult! Get ahead of the dinnertime argument with MealForTwo, an application that randomly generates a recipe and ingredient list for you and yours. Search by main ingredient, type of cuisine, or use our random meal generator and let fate decide!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Technologies Used: 
+TheMealDB API: https://www.themealdb.com/api.php
+React 
 
-## Available Scripts
+Getting Started:
+Check back for updates!
 
-In the project directory, you can run:
+Contribution Guidelines:
+Check back for updates!
 
-### `npm start`
+User Stories: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As a user, I want to randomly generate a dinner recipe that has all ingredients and cooking instructions listed, so that I don't have to choose what to cook for dinner.
+As a user, I want to look up a specific type of cuisine and be presented with different options within that category, so that I can decide what to serve for dinner.
+As a user, I want to search a dish by name, so that I can get the recipe list and cooking instructions for a particular dish.
+As a user, I want to save my favorite recipes so that I can easily access them again.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+MVP Goals:
+Create an app that allows the user to generate a random meal, which consists of ingredients an instructions for cooking
+Create an app that allows the user to search by keyword ingredient, which returns all recipes that contain that keyword ingredient and cooking instructions.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Stretch Goals
+As a user, I want to list all the ingredients I don't like and have recipes with these ingredients removed from my list of options for all returns.
+As a user, I want to tell the app what category of food I'd like to cook and have it randomly generate a recipe based on category and keywords (ex: french & chicken)
+As a user, I want the recipe to dynamically update for the number of people I am cooking for.
+As a user, I want to know the source of the recipe so that I can look into buying a cookbook if applicable.
+As a user, I want recommended wine pairings for each dish, broken out into low, medium, and high tier wines.
+Create an app that allows the user to search by name, which returns ingredients and cooking instructions.
