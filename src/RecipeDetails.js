@@ -15,7 +15,6 @@ const RecipeDetails = ({ match }) => {
           .then(res => res.json())
           .then (res => {
             setRecipe(res.meals[0])
-            console.log(res)
           })
           .catch(err => {
               console.error(err)

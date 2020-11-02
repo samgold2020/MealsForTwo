@@ -14,7 +14,7 @@ const RandomRecipe = ({ random, setRandom }) => {
         fetch(randomAPI)
         .then(res => res.json())
         .then (res => {
-            setRandom(res.meals[0]) //This pulls out the meal from the array
+            setRandom(res.meals[0]) 
         })
         .catch(err => {
             console.error(err)

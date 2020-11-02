@@ -3,7 +3,14 @@ Whether it's trying to choose what show to watch or whether or not the actually 
 
 Technologies Used: 
 TheMealDB API: https://www.themealdb.com/api.php
-React 
+-React -Javascript -HTML -CSS
+
+Wire Frames: 
+https://ibb.co/YfhxVD9
+https://ibb.co/YD8CMM9
+
+Component Hierarcy: 
+https://ibb.co/K9T85wH
 
 Getting Started:
 Check back for updates!
